@@ -1,6 +1,7 @@
-# codewars
+# Euler
 
-Code practice in programming languages (Python, Javascript, C, C++, Java, etc)
+Problems and answers of Euler project
 
-Solve problems in https://www.codewars.com/
+https://projecteuler.net/
+
 
