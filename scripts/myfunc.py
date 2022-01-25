@@ -128,7 +128,7 @@ def square_of_sum(n):
 
 
 def get_product(x):
-	"""Return product of all the element in x
+    """Return product of all the element in x
 
     Parameters
     ----------
@@ -137,14 +137,15 @@ def get_product(x):
     Return
     ------
     product (float): the greatest product of size n
-	"""
-	if not x:
-		return None
+    """
+    if not x:
+        return None
 
     product = 1
     for element in x:
         product *= element
     return product
+
 
 def greatest_product(x, n):
     """Return the greatest product of n consecutive numbers in list x
@@ -166,8 +167,9 @@ def greatest_product(x, n):
     greatest = get_product(x[:n])
 
     # replace if greater
-    for i in range(len(y)-n):
-        new = get_product(y[i:i+n])
-        greatest = new if new > greatest
+    for i in range(len(x) - n):
+        new = get_product(x[i:i + n])
+        if new > greatest:
+            greatest = new
 
     return greatest
