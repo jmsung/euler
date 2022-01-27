@@ -1,6 +1,6 @@
 # Euler
 
-Problems and answers of Euler project
+Problems and my solutions of Euler project for math and algorithms
 
 https://projecteuler.net/
 
