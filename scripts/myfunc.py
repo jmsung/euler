@@ -6,7 +6,25 @@ def fib(a, b):
 
 
 def prime_factor(x):
-    """ Return the prime factor of input x """
+    """ Return the prime factor of input x
+
+    Parameters
+    ----------
+    x (int): input natural number > 1
+
+    Return
+    ------
+    sorted_pf (set): list of prime factor of x
+    """
+    if not x:
+        raise ValueError("Empty input.")
+
+    if not isinstance(x, int):
+        raise ValueError("Input value must be integer.")
+
+    if x < 2:
+        return None
+
     pf = set()
     while x > 1:
         for i in range(2, x + 1):
@@ -20,7 +38,20 @@ def prime_factor(x):
 
 
 def is_prime(n):
-    """ Return whether the input n is primer number or not"""
+    """ Return whether the input n is primer number or not
+
+    Parameters
+    ----------
+    n (int): input number
+
+    Return
+    ------
+    result (bool): True if prime
+
+    """
+    if not isinstance(n, int) or n < 2:
+        return False
+
     for i in range(2, n):
         if n % i == 0:
             return False
