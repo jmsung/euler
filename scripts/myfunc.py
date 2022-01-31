@@ -109,12 +109,12 @@ def greatest_product(x, n):
 
     Parameters
     ----------
+    x (list): list of numbers
     n (int): size of consecurtive number
-    x (list): list of int numbers
 
     Return
     ------
-    greatest (int): the greatest product of size n
+    greatest (float): the greatest product of size n
     """
 
     if len(x) < n:

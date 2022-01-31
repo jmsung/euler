@@ -1,8 +1,8 @@
 name: euler
 channels:
+  - anaconda
   - http://rssregistry.roche.com:8081/artifactory/api/conda/conda
   - bioconda
-  - anaconda
   - conda-forge
   - defaults
 dependencies:
