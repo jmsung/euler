@@ -66,6 +66,8 @@ class TestMyFunc(unittest.TestCase):
     def test_divisors(self):
         test_data = [
             (6, [1, 2, 3, 6]),
+            (1.5, []),
+            (-2, []),
         ]
         for test_input, test_output in test_data:
             self.assertEqual(divisors(test_input), test_output)

@@ -145,10 +145,11 @@ def divisors(n):
     if not isinstance(n, int) or n < 1:
         return []
 
-    divisors = [1, n]
+    divisors = set([1, n])
 
     for i in range(2, int(n / 2)):
         if n % i == 0:
-            divisors.extend([i, n / i])
+            divisors.add(i)
+            divisors.add(int(n / i))
 
-    return divisors.sort()
+    return list(divisors)
