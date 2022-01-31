@@ -14,8 +14,8 @@ def prime_factor(x):
 
     Return
     ------
-    sorted_pf (set): list of prime factor of x
-    """
+    sorted_pf (set): list of prime factor of x """
+
     if not x:
         raise ValueError("Empty input.")
 
@@ -46,8 +46,8 @@ def is_prime(n):
 
     Return
     ------
-    result (bool): True if prime
-    """
+    result (bool): True if prime """
+
     if not isinstance(n, int) or n < 2:
         return False
 
@@ -66,8 +66,8 @@ def primes_below(n):
 
     Return
     ------
-    primes (list): List of prime numbers below n
-    """
+    primes (list): List of prime numbers below n """
+
     if n <= 2:
         return []
 
@@ -82,7 +82,7 @@ def primes_below(n):
 
 
 def element_product(x):
-    """Return the product of all the element in list x
+    """ Return the product of all the element in list x
 
     Parameters
     ----------
@@ -90,8 +90,8 @@ def element_product(x):
 
     Return
     ------
-    product (float): the greatest product of size n
-    """
+    product (float): the greatest product of size n """
+
     if not x:
         return None
 
@@ -105,7 +105,7 @@ def element_product(x):
 
 
 def greatest_product(x, n):
-    """Return the greatest product of n consecutive numbers in list x
+    """ Return the greatest product of n consecutive numbers in list x
 
     Parameters
     ----------
@@ -114,8 +114,7 @@ def greatest_product(x, n):
 
     Return
     ------
-    greatest (float): the greatest product of size n
-    """
+    greatest (float): the greatest product of size n """
 
     if len(x) < n:
         return None
@@ -130,3 +129,26 @@ def greatest_product(x, n):
             greatest = new
 
     return greatest
+
+
+def divisors(n):
+    """ Return a list of divisors of positive int n
+
+    Parameters
+    ----------
+    n (int): A number to be divided
+
+    Return
+    ------
+    divisors (list of int): the divisors """
+
+    if not isinstance(n, int) or n < 1:
+        return []
+
+    divisors = [1, n]
+
+    for i in range(2, int(n / 2)):
+        if n % i == 0:
+            divisors.extend([i, n / i])
+
+    return divisors.sort()

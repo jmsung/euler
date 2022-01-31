@@ -3,7 +3,7 @@ import unittest
 
 from scripts.myfunc import (
     fib, prime_factor, is_prime, primes_below, element_product,
-    greatest_product
+    greatest_product, divisors,
 )
 
 
@@ -62,3 +62,10 @@ class TestMyFunc(unittest.TestCase):
         ]
         for test_input, test_output in test_data:
             self.assertEqual(greatest_product(*test_input), test_output)
+
+    def test_divisors(self):
+        test_data = [
+            (6, [1, 2, 3, 6]),
+        ]
+        for test_input, test_output in test_data:
+            self.assertEqual(divisors(test_input), test_output)
