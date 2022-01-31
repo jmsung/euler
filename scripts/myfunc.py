@@ -38,7 +38,7 @@ def prime_factor(x):
 
 
 def is_prime(n):
-    """ Return whether the input n is primer number or not
+    """ Return whether the input n is prime number or not
 
     Parameters
     ----------
@@ -47,7 +47,6 @@ def is_prime(n):
     Return
     ------
     result (bool): True if prime
-
     """
     if not isinstance(n, int) or n < 2:
         return False
@@ -58,108 +57,32 @@ def is_prime(n):
     return True
 
 
-def prime_below(n):
+def primes_below(n):
     """ Return prime numbers below n
 
     Parameters
     ----------
-    n: int
-            Input value
+    n (int): Input value
 
     Return
     ------
-    primes: list
-            List of prime values below n
+    primes (list): List of prime numbers below n
     """
-    n = int(n)
+    if n <= 2:
+        return []
 
+    n = int(n)
     primes = [2]
 
     for i in range(3, n, 2):
-        # if sum([i % prime == 0 for prime in primes]) > 0:
-        #     continue
         if is_prime(i):
             primes.append(i)
 
     return primes
 
 
-def findsprimes(n):
-    primes = [2]
-    for i in range(3, n + 1):
-        for j in primes:
-            if(j == primes[len(primes) - 1]):
-                primes = primes + [i]
-            if(i % j == 0):
-                break
-            else:
-                continue
-    return primes
-
-
-def findfactors(n):
-    primes = findsprimes(n)
-    factors = []
-    for i in range(n):
-        for j in range(i, n):
-            if(i * j == n):
-                if(i not in primes):
-                    if(j not in primes):
-                        factors = findfactors(i) + findfactors(j)
-                    else:
-
-                        factors = [j] + findfactors(i)
-
-                else:
-                    if(j not in primes):
-                        if(i not in primes):
-                            factors = findfactors(i) + findfactors(j)
-                        else:
-
-                            factors = [i] + findfactors(j)
-                    else:
-                        factors = [i, j]
-
-                break
-    if(n in primes):
-        factors = [n]
-    return factors
-
-
-def findsmallest(n):
-    primes = findsprimes(n)
-    primesnum = [0] * len(primes)
-    allzefac = []
-    for i in range(n + 1):
-        allzefac = allzefac + [findfactors(i)]
-    for i in primes:
-        for j in allzefac:
-            if(j.count(i) > primesnum[primes.index(i)]):
-                primesnum[primes.index(i)] = j.count(i)
-
-    summy = 1
-    for i in range(len(primes)):
-        if primesnum[i] != 0:
-            summy = summy * primes[i] ** primesnum[i]
-    return summy
-
-
-def sum_of_squares(n):
-    sum = 0
-    for i in range(n + 1):
-        sum += i**2
-    return sum
-
-
-def square_of_sum(n):
-    sum = 0
-    for i in range(n + 1):
-        sum += i
-    return sum**2
-
-
-def get_product(x):
-    """Return product of all the element in x
+def element_product(x):
+    """Return the product of all the element in list x
 
     Parameters
     ----------
@@ -171,6 +94,9 @@ def get_product(x):
     """
     if not x:
         return None
+
+    if 0 in x:
+        return 0
 
     product = 1
     for element in x:
@@ -195,11 +121,11 @@ def greatest_product(x, n):
         return None
 
     # the first product
-    greatest = get_product(x[:n])
+    greatest = element_product(x[:n])
 
     # replace if greater
-    for i in range(len(x) - n):
-        new = get_product(x[i:i + n])
+    for i in range(len(x) - n + 1):
+        new = element_product(x[i:i + n])
         if new > greatest:
             greatest = new
 
