@@ -1,5 +1,3 @@
-import numpy as np
-
 
 def fib(a, b):
     return a + b
@@ -174,8 +172,9 @@ def lst2num(lst):
     """ Convert from a list of single digits to a multiple digit number """
 
     # check all the element have the same sign
-    if not all(sign(element) == sign(lst[0]) for element in lst if element != 0):
-        raise ValueError("All the element in the list must have the same sign.")
+    if not all(sign(element) == sign(lst[0])
+               for element in lst if element != 0):
+        raise ValueError("All the element in lst must have the same sign.")
 
     num = int("".join([str(abs(i)) for i in lst]))
     return num if sign(lst[0]) > 0 else -num
