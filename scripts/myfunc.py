@@ -191,3 +191,34 @@ def list_same_digit(n):
     ------
     digits (list of int): combination of digits """
     pass
+
+
+def collatz_sequence(n):
+    """ Return the list of Collatz sequences based on a rule:
+    n → n/2 (n is even)
+    n → 3n + 1 (n is odd)    
+    
+    Eg. collatz_sequence(13) returns
+    13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1
+    
+    Parameters
+    ----------
+    n (int): An int number
+
+    Return
+    ------
+    seq (list of int): collatz_sequence """
+
+    if not isinstance(n, int) or n < 1:
+        return []
+    
+    seq = [n]
+    
+    while n > 1:
+        if n%2 == 0:
+            n = n/2
+        else:
+            n = 3*n + 1
+        seq.append(int(n))
+    
+    return seq

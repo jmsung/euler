@@ -3,7 +3,7 @@ import unittest
 
 from scripts.myfunc import (
     fib, prime_factor, is_prime, primes_below, element_product,
-    greatest_product, divisors, sign, lst2num, num2lst,
+    greatest_product, divisors, sign, lst2num, num2lst, collatz_sequence
 )
 
 
@@ -96,3 +96,11 @@ class TestMyFunc(unittest.TestCase):
         ]
         for test_input, test_output in test_data:
             self.assertEqual(lst2num(test_input), test_output)
+
+    def test_collatz_sequence(self):
+        test_data = [
+            (4, [4, 2, 1]),
+            (13, [13, 40, 20, 10, 5, 16, 8, 4, 2, 1]),
+        ]
+        for test_input, test_output in test_data:
+            self.assertEqual(collatz_sequence(test_input), test_output)        
