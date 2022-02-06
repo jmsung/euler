@@ -3,7 +3,8 @@ import unittest
 
 from scripts.myfunc import (
     fib, prime_factor, is_prime, primes_below, element_product,
-    greatest_product, divisors, sign, lst2num, num2lst, collatz_sequence
+    greatest_product, divisors, sign, lst2num, num2lst, collatz_sequence,
+    longest_collatz_sequence
 )
 
 
@@ -104,3 +105,11 @@ class TestMyFunc(unittest.TestCase):
         ]
         for test_input, test_output in test_data:
             self.assertEqual(collatz_sequence(test_input), test_output)        
+            
+    def test_longest_collatz_sequence(self):
+        test_data = [
+            (10, 9),
+            (100, 97),
+        ]
+        for test_input, test_output in test_data:
+            self.assertEqual(longest_collatz_sequence(test_input), test_output)                

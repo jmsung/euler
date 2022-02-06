@@ -222,3 +222,20 @@ def collatz_sequence(n):
         seq.append(int(n))
     
     return seq
+
+def longest_collatz_sequence(n):
+    """ Return the longest Collatz sequence under n """
+    
+    if not isinstance(n, int) or n < 1:
+        return 0    
+    
+    max_length = 0 # max length of seq
+    max_n = 0 # the number that makes the longest seq 
+
+    for i in range(1, n+1):
+        seq = collatz_sequence(i)
+        if len(seq) > max_length:
+            max_length = len(seq)
+            max_n = i
+    
+    return max_n
